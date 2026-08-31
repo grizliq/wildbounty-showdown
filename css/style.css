@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{
+  --bg:#0e0d0b;
+  --panel:#161310;
+  --panel2:#1b1712;
+  --line:rgba(255,255,255,.09);
+  --line-soft:rgba(255,255,255,.055);
+  --text:#f2ede4;
+  --soft:#b4ab9c;
+  --muted:#7c7365;
+  --accent:#f4a825;
+  --accent-hi:#ffc153;
+  --ink:#171009;
+  --display:'Space Grotesk',system-ui,-apple-system,sans-serif;
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --maxw:1120px;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);
+  line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+.bg{position:fixed;inset:0;z-index:-1;
+  background:
+    radial-gradient(700px 420px at 88% -10%, rgba(244,168,37,.10), transparent 62%),
+    var(--bg);}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.12;letter-spacing:-.02em;margin:0 0 .5em}
+h1{font-size:clamp(30px,4.6vw,52px);font-weight:700}
+h2{font-size:clamp(22px,2.8vw,32px)}
+h3{font-size:18px;font-weight:600}
+p{margin:0 0 1em}
+strong{color:var(--text);font-weight:600}
+
+/* Кнопки — плоские, без градиентов */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  height:50px;padding:0 26px;border-radius:12px;font-family:var(--font);font-weight:600;font-size:15px;
+  background:var(--accent);color:var(--ink);border:1px solid transparent;
+  transition:background .18s ease,transform .18s ease;cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--accent-hi);transform:translateY(-1px)}
+.btn--sm{height:40px;padding:0 18px;font-size:14px}
+.btn--lg{height:54px;padding:0 32px;font-size:16px}
+.btn--ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn--ghost:hover{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.22)}
+
+/* Шапка */
+.hdr{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:24px;
+  padding:16px clamp(16px,5vw,60px);
+  background:rgba(14,13,11,.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
+.hdr__brand{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.01em}
+.hdr__brand span{color:var(--accent)}
+.hdr__nav{display:flex;gap:26px;margin-left:auto}
+.hdr__nav a{color:var(--soft);font-size:14.5px;font-weight:500;transition:color .15s ease}
+.hdr__nav a:hover{color:var(--text)}
+
+/* Секции */
+main{max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,5vw,32px)}
+.sec{padding:56px 0;border-top:1px solid var(--line-soft)}
+.sec p{color:var(--soft);max-width:68ch}
+.note{color:var(--muted);font-size:13px;margin-top:18px}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:minmax(0,360px) 1fr;gap:56px;align-items:center;padding:64px 0 60px}
+.hero__media img{width:100%;height:auto;border-radius:18px;border:1px solid var(--line);
+  box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.kicker{color:var(--accent);text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:600;margin:0 0 14px}
+.hero__body h1{margin-bottom:.35em}
+.lead{color:var(--soft);font-size:16.5px;max-width:52ch}
+.hero__cta{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 30px}
+.hero__facts{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0;padding:0}
+.hero__facts li{background:var(--panel);border:1px solid var(--line-soft);border-radius:12px;padding:15px 12px;text-align:center}
+.hero__facts b{display:block;font-family:var(--display);font-size:18px;color:var(--text);font-weight:600;margin-bottom:3px}
+.hero__facts span{font-size:12px;color:var(--muted)}
+
+/* Характеристики */
+.specs{border:1px solid var(--line-soft);border-radius:var(--radius);overflow:hidden;max-width:640px}
+.specs__row{display:flex;justify-content:space-between;gap:16px;padding:15px 20px;border-bottom:1px solid var(--line-soft)}
+.specs__row:last-child{border-bottom:0}
+.specs__row span{color:var(--muted)}
+.specs__row b{color:var(--text);text-align:right;font-weight:500}
+
+/* Карточки фич */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--radius);padding:22px;
+  transition:border-color .18s ease,transform .18s ease}
+.card:hover{border-color:var(--line);transform:translateY(-2px)}
+.card h3{color:var(--text)}
+.card h3::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;
+  background:var(--accent);margin-right:9px;vertical-align:middle}
+.card p{margin:0;color:var(--soft);font-size:14.5px}
+
+/* CTA-секция (демо) */
+.sec--cta{background:var(--panel);border:1px solid var(--line-soft);border-radius:20px;
+  padding:44px clamp(20px,4vw,44px);text-align:center}
+.sec--cta p{margin-left:auto;margin-right:auto}
+
+/* Оффер «где играть» */
+.offer{position:relative;display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:center;
+  background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px 28px;margin-top:12px}
+.offer__badge{position:absolute;top:-11px;left:26px;z-index:2;
+  padding:5px 14px;border-radius:8px;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  background:var(--accent);color:var(--ink)}
+.offer__pic img{width:100%;aspect-ratio:3/3.5;object-fit:cover;object-position:center 16%;
+  border-radius:12px;border:1px solid var(--line-soft)}
+.offer__info h3{color:var(--text);font-size:20px;margin:0 0 14px}
+.offer__info ul{margin:0 0 22px;padding:0;list-style:none;display:grid;gap:10px}
+.offer__info li{position:relative;padding-left:24px;color:var(--soft);font-size:14.5px}
+.offer__info li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+/* FAQ */
+.q{border:1px solid var(--line-soft);border-radius:12px;margin-bottom:10px;overflow:hidden;background:var(--panel)}
+.q[open]{border-color:var(--line)}
+.q>summary{list-style:none;cursor:pointer;padding:17px 46px 17px 18px;font-weight:500;position:relative;color:var(--text)}
+.q>summary::-webkit-details-marker{display:none}
+.q>summary::after{content:"";position:absolute;right:20px;top:50%;width:8px;height:8px;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.q[open]>summary::after{transform:translateY(-30%) rotate(-135deg);border-color:var(--accent)}
+.q p{margin:0;padding:0 18px 18px;color:var(--soft);font-size:14.5px}
+
+/* Подвал */
+.ftr{max-width:var(--maxw);margin:48px auto 0;padding:28px clamp(16px,5vw,32px) 44px;border-top:1px solid var(--line-soft);text-align:center}
+.ftr p{color:var(--muted);font-size:13px;margin:0 0 6px}
+.ftr__copy{opacity:.75}
+
+/* Адаптив */
+@media (max-width:820px){
+  .hdr__nav{display:none}
+  .hero{grid-template-columns:1fr;gap:28px}
+  .hero__media{max-width:300px;margin:0 auto}
+  .cards{grid-template-columns:1fr}
+  .hero__facts{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .offer{grid-template-columns:1fr;text-align:center;padding-top:32px}
+  .offer__pic{max-width:180px;margin:0 auto}
+  .offer__info ul{text-align:left}
+  .offer__badge{left:50%;transform:translateX(-50%)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Центрирование текстовых секций */
+.sec{text-align:center}
+.sec > p{margin-left:auto;margin-right:auto;max-width:64ch}
+.specs{margin-left:auto;margin-right:auto}
+.cards,.offer,.q{text-align:left}
+
+/* ===== Градиентный фон и стилизация блоков ===== */
+.bg{overflow:hidden;
+  background:linear-gradient(180deg,#181309 0%,#120f0a 48%,#0c0a07 100%);}
+/* Цветные размытые орбы */
+.orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.4;pointer-events:none}
+.orb--1{width:560px;height:560px;left:-180px;top:2%;
+  background:radial-gradient(circle at 50% 50%, #f7b12e, rgba(247,177,46,0) 68%)}
+.orb--2{width:520px;height:520px;right:-160px;top:22%;
+  background:radial-gradient(circle at 50% 50%, #e8641e, rgba(232,100,30,0) 68%)}
+.orb--3{width:460px;height:460px;left:-150px;top:52%;
+  background:radial-gradient(circle at 50% 50%, #d1471f, rgba(209,71,31,0) 68%)}
+.orb--4{width:500px;height:500px;right:-170px;bottom:6%;
+  background:radial-gradient(circle at 50% 50%, #f5a623, rgba(245,166,35,0) 68%)}
+.orb--5{width:440px;height:440px;left:-130px;bottom:-10%;
+  background:radial-gradient(circle at 50% 50%, #e07b1e, rgba(224,123,30,0) 68%)}
+@media (max-width:900px){ .orb{opacity:.3} .orb--2,.orb--3{display:none} }
+/* «Стеклянная» база блоков: мягкий градиент + верхняя световая грань + глубина */
+.hero__facts li,.card,.specs,.q{
+  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 12px 32px rgba(0,0,0,.26);
+}
+.hero__facts li{transition:transform .18s ease,border-color .18s ease}
+.hero__facts li:hover{transform:translateY(-2px);border-color:var(--line)}
+.card:hover{border-color:rgba(244,168,37,.38);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 18px 42px rgba(0,0,0,.34)}
+.q[open]{box-shadow:inset 0 1px 0 rgba(255,255,255,.07), 0 12px 32px rgba(0,0,0,.3)}
+
+/* Демо-CTA — тёплый акцентный градиент */
+.sec--cta{
+  background:linear-gradient(180deg,rgba(244,168,37,.13),rgba(255,255,255,.015));
+  border-color:rgba(244,168,37,.20);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 16px 40px rgba(0,0,0,.3)}
+
+/* Оффер — акцентный градиент с диагональю */
+.offer{
+  background:linear-gradient(150deg,rgba(244,168,37,.12),rgba(255,255,255,.022) 44%,rgba(255,255,255,.01));
+  border-color:rgba(244,168,37,.24);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 22px 54px rgba(0,0,0,.42)}
+
+/* Акцентная черта под центрированными заголовками */
+.sec > h2{position:relative;display:inline-block;margin-bottom:26px}
+.sec > h2::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-13px;
+  width:44px;height:3px;border-radius:3px;background:var(--accent)}
+
+/* Иконки в карточках фич */
+.card__ic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  background:rgba(244,168,37,.12);border:1px solid rgba(244,168,37,.28);margin-bottom:15px}
+.card__ic svg{width:23px;height:23px;stroke:var(--accent);fill:none;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round}
+.card h3::before{display:none}
+
+/* Плюсы и минусы */
+.proscons{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:840px;margin:0 auto;text-align:left}
+.pc{padding:24px 26px;border-radius:16px;border:1px solid var(--line-soft);
+  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 12px 32px rgba(0,0,0,.26)}
+.pc h3{margin:0 0 16px;font-size:18px;display:flex;align-items:center;gap:9px}
+.pc h3::before{content:"";width:8px;height:8px;border-radius:50%}
+.pc--pro h3::before{background:#57c98a;box-shadow:0 0 10px rgba(87,201,138,.5)}
+.pc--con h3::before{background:var(--muted)}
+.pc ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.pc li{position:relative;padding-left:28px;color:var(--soft);font-size:14.5px}
+.pc--pro li::before{content:"✓";position:absolute;left:0;top:-1px;color:#57c98a;font-weight:700}
+.pc--con li::before{content:"–";position:absolute;left:3px;top:-2px;color:var(--muted);font-weight:700;font-size:19px}
+
+/* Как играть — шаги */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left;margin:6px 0 28px}
+.step{position:relative;padding:26px 24px;border-radius:16px;border:1px solid var(--line-soft);
+  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 12px 32px rgba(0,0,0,.26)}
+.step__n{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;
+  border-radius:12px;background:var(--accent);color:var(--ink);
+  font-family:var(--display);font-weight:700;font-size:18px;margin-bottom:15px}
+.step h3{margin:0 0 8px;font-size:17px}
+.step p{margin:0;color:var(--soft);font-size:14px}
+.howto__cta{text-align:center}
+
+/* Блок «Что за слот» — текст + игровой скрин */
+.about{display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:center;text-align:left;
+  max-width:1000px;margin:0 auto}
+.about__text p{margin:0 0 16px}
+.about__facts{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:22px 0 0;padding:0}
+.about__facts li{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  padding:11px 15px;border-radius:11px;border:1px solid var(--line-soft);
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01))}
+.about__facts span{color:var(--muted);font-size:13px}
+.about__facts b{color:var(--text);font-family:var(--display);font-weight:600;font-size:14.5px}
+.about__media{margin:0}
+.about__media img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center;
+  border-radius:16px;border:1px solid var(--line);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 22px 54px rgba(0,0,0,.46)}
+.about__media figcaption{margin-top:12px;color:var(--muted);font-size:12.5px;text-align:center}
+
+/* Символы и выплаты */
+.syms{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:left;margin:6px 0 4px}
+.sym{padding:18px 20px;border-radius:14px;border:1px solid var(--line-soft);
+  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.sym b{display:block;font-family:var(--display);font-weight:600;font-size:15px;color:var(--text);margin-bottom:6px}
+.sym span{color:var(--soft);font-size:13.5px;line-height:1.5}
+.sym--wild{border-color:rgba(244,168,37,.4)}
+.sym--wild b{color:var(--accent-hi)}
+.sym--scatter{border-color:rgba(244,168,37,.28)}
+.sym--scatter b{color:var(--accent)}
+
+@media (max-width:820px){
+  .proscons{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .syms{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr;gap:26px}
+  .about__media{order:-1;max-width:520px;margin:0 auto}
+}
+@media (min-width:821px) and (max-width:1000px){ .syms{grid-template-columns:repeat(2,1fr)} }
+
+/* Промо-уведомление (фриспины) */
+.promo{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;
+  background:rgba(8,7,5,.72);backdrop-filter:blur(6px);animation:promoFade .25s ease}
+.promo[hidden]{display:none}
+.promo__card{position:relative;max-width:400px;width:100%;text-align:center;padding:36px 30px 28px;
+  border-radius:20px;border:1px solid rgba(244,168,37,.3);
+  background:linear-gradient(180deg,#1d1811,#131009);
+  box-shadow:0 30px 80px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.06);
+  animation:promoPop .3s cubic-bezier(.2,.8,.2,1)}
+@keyframes promoFade{from{opacity:0}to{opacity:1}}
+@keyframes promoPop{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+.promo__badge{display:inline-flex;align-items:center;gap:9px;padding:5px 16px 5px 5px;border-radius:999px;
+  font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  background:rgba(244,168,37,.10);border:1px solid rgba(244,168,37,.28);color:var(--accent-hi);margin-bottom:18px}
+.promo__badge-ic{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;flex:0 0 auto;
+  border-radius:50%;background:linear-gradient(180deg,var(--accent-hi),var(--accent));
+  box-shadow:0 3px 12px rgba(244,168,37,.5), inset 0 1px 0 rgba(255,255,255,.35)}
+.promo__badge-ic svg{width:14px;height:14px;fill:none;stroke:#171009;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.promo__title{font-family:var(--display);font-weight:700;font-size:23px;line-height:1.2;margin:0 0 12px;color:var(--text)}
+.promo__title span{color:var(--accent)}
+.promo__text{color:var(--soft);font-size:14px;line-height:1.55;margin:0 0 22px}
+.promo__btn{width:100%}
+.promo__later{display:block;margin:14px auto 0;background:none;border:0;color:var(--muted);
+  font-size:13.5px;cursor:pointer;font-family:var(--font)}
+.promo__later:hover{color:var(--soft)}
+.promo__close{position:absolute;top:11px;right:14px;background:none;border:0;color:var(--muted);
+  font-size:26px;line-height:1;cursor:pointer;padding:4px}
+.promo__close:hover{color:var(--text)}
