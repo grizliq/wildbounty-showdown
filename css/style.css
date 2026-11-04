@@ -311,3 +311,4 @@ main{max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,5vw,32px)}
 .bait__text{margin:0 0 18px;font-size:15px;color:var(--soft)}
 .bait__card .btn{width:100%}
 .bait__later{margin-top:10px;border:0;background:none;color:var(--muted);font-size:14px;cursor:pointer;text-decoration:underline}
+.demo video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
